@@ -35,5 +35,13 @@ namespace Trejeitos.Controllers
 
             return RedirectToAction("Inicio", "Inicio");
         }
+
+        public ActionResult ListaCliente()
+        {
+            ClienteModel climodel = new ClienteModel();
+            List<Cliente> lista = climodel.Listar();
+
+            return View(lista);
+        }
     }
 }
