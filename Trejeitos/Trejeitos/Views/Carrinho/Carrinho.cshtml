@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Carrinho de Compras</title>
+</head>
+<body>
+    <div class="page-header" style="height:40px; border-bottom:double;">
+        <h1 style="padding-left:10px;">Trejeitos - Sua loja da moda</h1>
+    </div>
+    <h1> Resumo do carrinho</h1>
+        <div class="row thumbnail" style="background-color:lightgray; margin-left:10px; margin-right:10px">
+            <div class="col-md-2">
+                <img src="~/img/001.png" alt="Nome do Produto" style="width:135px;  height:180px;">
+            </div>
+            <div class="col-md-3" style="margin-top:40px">
+                <h3>Nome do Produto</h3>
+                <p> Coleção Primavera / Verão 2015</p>
+                <p> Cor: Preto | Tam: M</p>
+            </div>
+            <div class="col-md-3" style="margin-top:70px;">
+                <label>Qtd:</label>
+                <input type="text" name="qtd" />
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"</span></button>
+            </div>
+            <div class="col-md-2" style="margin-top:70px">
+                <label>R$ 199,90</label>
+            </div>
+        </div>
+
+    <div class="row thumbnail" style="background-color:lightgray; margin-left:10px; margin-right:10px">
+        <div class="col-md-2">
+            <img src="~/img/001.png" alt="Nome do Produto" style="width:135px;  height:180px;">
+        </div>
+        <div class="col-md-3" style="margin-top:40px">
+            <h3>Nome do Produto</h3>
+            <p> Coleção Primavera / Verão 2015</p>
+            <p> Cor: Preto | Tam: M</p>
+        </div>
+        <div class="col-md-3" style="margin-top:70px;">
+            <label>Qtd:</label>
+            <input type="text" width="15px" name="qtd" />
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"</span></button>
+        </div>
+        <div class="col-md-2" style="margin-top:70px">
+            <label>R$ 199,90</label>
+        </div>
+    </div>
+
+    <div class="row" style="padding:2px; margin-left:10px;">
+        <div class="col-md-4 thumbnail" style="padding-top:20px; padding-bottom:20px; padding-left:10px;background-color:lightgray; width:40%">
+            <p style="font-family:Verdana;text-align:center"> Dados do Comprador</p>
+                <label>Cliente:</label>
+                <p><em>Pedro Regino Pires</em></p><br />
+                <label>Endereço:</label><br />
+                <p><em>Rua Saldanha Marinho, 3500, Ap:54<br />CEP:15046-000 São José do Rio Preto-SP</em></p>
+                <label>Cliente desde: 05/2015</label>
+        </div>
+        <div class="col-md-2" style="margin-left:40px; padding-top:20px; padding-bottom:20px; padding-left:10px">
+            <label>Tem um cupom de desconto?<br /> Digite o código aqui</label>
+            <input type="text" name="desconto" />
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-check"></span>  Validar cupom</button>
+        </div>
+        <div class="col-md-2" style="margin-left:40px; padding-top:20px; padding-bottom:20px; padding-left:10px; width: 20%">
+            <label>Frete:</label><br />
+            <p title="frete"><em>Grátis</em></p>
+            <br>
+            <label>Desconto:</label><br />
+            <p title="desconto1"> R$0,00</p>
+            <br>
+            <label>Total da compra:</label><br />
+            <p title="total"> R$299,80</p>
+        </div>
+        <div class="col-md-2" style="margin-top:20px; margin-left:10px">
+            <a href="/Pedido/Pedido" style="margin-top:20px; margin-left:15px"class="btn btn-success" type="submit"><span class="glyphicon glyphicon-check"></span>  Finalizar Compra</a><br />
+            <a href="/Inicio/Inicio" style="margin-top:20px; margin-left:5px" class="btn btn-default" type="button"><span class="glyphicon glyphicon-arrow-left"></span>  Continuar comprando</a>
+        </div>
+    </div>
+</body>
+</html>

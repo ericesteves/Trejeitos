@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        #control-group {
+            width: 400px;
+            margin: auto;
+        }
+
+        body {
+            background-image: url(https://images6.alphacoders.com/313/313679.jpg);
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <div class="container">
+
+        <div class="well" style="color: maroon;background-color:transparent; border-color:brown ; border-width: 1.5px; text-align:center; font-size: 40px; font-family:'AR JULIAN'">Login</div>
+    </div>
+
+
+    <form class="form-horizontal">
+        <div id="control-group">
+            <label class="control-label" style="color: brown; font-family:Constantia; font-size: 20px" for="inputEmail">E-mail</label>
+            <div class="controls">
+                <input class="form-control" id="inputEmail" type="text" placeholder="Digite o seu e-mail...">
+            </div>
+        </div>
+        <div id="control-group">
+            <label class="control-label" style="color: brown; font-family:Constantia; font-size: 20px" for="inputPassword">Senha</label>
+            <div class="controls">
+                <input class="form-control" id="inputPassword" type="password" placeholder="Digite a sua senha..." />
+            </div>
+        </div>
+        <div id="control-group">
+            <div class="controls">
+                <label class="checkbox" style="color: brown"><input type="checkbox" /> Lembrar senha</label>
+
+                <a href="/Inicio/Inicio" type="button" class="btn btn-small" style="color:brown; background-color:antiquewhite">
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true" style="color: burlywood"></span> Acessar
+                </a>
+                <a href="/Inicio/Inicio" type="button" class="btn btn-small" style="color:brown; background-color:bisque">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true" style="color: burlywood"></span> Retornar
+                </a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
