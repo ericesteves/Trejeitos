@@ -9,42 +9,45 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <title>ListaCliente</title>
+    <title>Lista de Clientes Ativos</title>
 </head>
 <body>
-    <h1 style="font-family:Courier New, Courier, monospace">Lista de Clientes Ativos</h1>
-    <table style="font-family:Courier New, Courier, monospace; border:1px dashed">
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>RG</th>
-            <th>CPF</th>
-            <th>Endereço</th>
-            <th>Cidade</th>
-            <th>Estado</th>
-            <th>Telefone</th>
-            <th></th>
-        </tr>
-
-        @foreach (var cli in Model)
-        {
+    <div style="padding-left:50px; padding-right:50px">
+        <h1 style="font-family:Courier New, Courier, monospace">Lista de Clientes Ativos</h1>
+        <table class="table table-striped" style="font-family:Courier New, Courier, monospace">
             <tr>
-                <td>cli.clienteid</td>
-                <td>cli.nome</td>
-                <td>cli.email</td>
-                <td>cli.rg</td>
-                <td>cli.cpf</td>
-                <td>cli.endereco</td>
-                <td>cli.cidade</td>
-                <td>cli.estado</td>
-                <td>cli.telefone</td>
-                <td>
-                    <a href="#">Editar</a>
-                    <a href="#">Apagar</a>
-                </td>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Telefone</th>
+                <th>Ações</th>
             </tr>
-        }
+
+            @foreach (var cli in Model)
+            {
+                <tr>
+                    <td>@cli.clienteid</td>
+                    <td>@cli.nome</td>
+                    <td>@cli.email</td>
+                    <td>@cli.rg</td>
+                    <td>@cli.cpf</td>
+                    <td>@cli.data_nascimento</td>
+                    <td>@cli.endereco</td>
+                    <td>@cli.cidade</td>
+                    <td>@cli.estado</td>
+                    <td>@cli.telefone</td>
+                    <td>
+                        <a href="#">Editar</a>
+                        <a href="#">Apagar</a>
+                    </td>
+                </tr>
+            }
         </table>
+    </div>
     </body>
 </html>

@@ -43,6 +43,7 @@ namespace Trejeitos.Models
                 cli.email = (string)clientes["email"];
                 cli.rg = (string)clientes["rg"];
                 cli.cpf = (string)clientes["cpf"];
+                cli.data_nascimento = (string)clientes["data_nascimento"];
                 cli.endereco = (string)clientes["endereco"];
                 cli.cidade = (string)clientes["cidade"];
                 cli.estado = (string)clientes["estado"];
