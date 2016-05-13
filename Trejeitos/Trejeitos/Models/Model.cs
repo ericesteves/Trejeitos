@@ -12,7 +12,11 @@ namespace Trejeitos.Models
 
         public Model()
         {
-            string strConn = "Data Source = Notebook; Initial Catalog = bdTrejeitos; Integrated Security = True; Connect Timeout = 15; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+            string strConn = @"Data Source = localhost;
+                Initial Catalog= bdTrejeitos;
+                Integrated Security= false;
+                User Id = sa;
+                Password = pedro";
             conn = new SqlConnection(strConn);
             conn.Open();
         }

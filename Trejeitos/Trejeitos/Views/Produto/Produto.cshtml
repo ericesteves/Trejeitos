@@ -35,70 +35,56 @@
     </div>
 
     <div class="col-lg-6 col-lg-offset-3">
-
-        <div class="form-group" style="text-align: center">
-
-
-            <label>Nome</label>
-            <input class="form-control" type="text" name="nome" placeholder="Digite o nome do produto" />
-        </div>
-
-        <div class="form-group" style="text-align: center">
-            <label class="control-label">Selecione a Imagem do Produto</label>
-            <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
-        </div>
-
-        <div class="form-group" style="text-align: center">
-            <label>Descrição</label>
-            <textarea class="form-control" rows="3" id="comment" placeholder="Digite a descrição do produto"></textarea>
-        </div>
-
-
-        <div class="form-group" style="text-align: center">
-            <label>Tamanho</label>
-
-            <select class="form-control" id="sel1">
-                <option disabled>Selecione um tamanho</option>
-                <option>PP</option>
-                <option>P</option>
-                <option>M</option>
-                <option>G</option>
-            </select>
+        <form action="/Produto/IncluirProduto" method="post">
 
             <div class="form-group" style="text-align: center">
-                <label>Cor</label>
-                <input class="form-control" type="text" name="Cor" placeholder="Digite a cor da peça" />
+
+
+                <label>Nome</label>
+                <input class="form-control" type="text" name="nome" placeholder="Digite o nome do produto" />
             </div>
 
             <div class="form-group" style="text-align: center">
-                <label>Preço</label>
-                <input class="form-control" type="text" name="Preço" placeholder="Digite o preço da peça (R$)" />
+                <label class="control-label">Selecione a Imagem do Produto</label>
+                <input id="input-2" name="imagem" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
             </div>
 
             <div class="form-group" style="text-align: center">
-                <label>Coleção</label>
-                <form role="form">
-                    <label class="radio-inline">
-                        <input type="radio" name="optradio">Primavera/Verão
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="optradio">Outono/Inverno
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="optradio">Exclusive Collection
-                    </label>
-                </form>
-
-                <a href="/Inicio/Inicio" type="submit" class="btn btn-sm btn-success">
-                    <span class="glyphicon glyphicon-floppy-disk"></span>Cadastrar
-                </a>
-
-                <a href="/Inicio/Inicio" class="btn btn-sm btn-default">
-                    <span class="glyphicon glyphicon-arrow-left"></span>Voltar
-                </a>
-                </form>
+                <label>Descrição</label>
+                <textarea class="form-control" name="descricao" rows="3" id="comment" placeholder="Digite a descrição do produto"></textarea>
             </div>
 
+
+            <div class="form-group" style="text-align: center">
+                <label>Tamanho</label>
+
+                <input class="form-control" type="text" name="tamanho" placeholder="Digite o tamanho do produto" />
+                </div>
+
+                <div class="form-group" style="text-align: center">
+                    <label>Cor</label>
+                    <input class="form-control" type="text" name="cor" placeholder="Digite a cor da peça" />
+                </div>
+
+                <div class="form-group" style="text-align: center">
+                    <label>Preço</label>
+                    <input class="form-control" type="text" name="preco" placeholder="Digite o preço da peça (R$)" />
+                </div>
+
+                <div class="form-group" style="text-align: center">
+                    <label>Coleção</label>
+                    <input class="form-control" type="text" name="colecao" placeholder="Digite a coleção da peça " />
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-success">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>Cadastrar
+                    </button>
+
+                    <a href="/Inicio/Inicio" class="btn btn-sm btn-default">
+                        <span class="glyphicon glyphicon-arrow-left"></span>Voltar
+                    </a>
+        </form>
+            </div>
+       
 </body>
 
 </html>

@@ -125,6 +125,8 @@
     <Compile Include="Models\ClienteModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\ProdutoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +140,7 @@
     <Content Include="Views\Produto\Produto.cshtml" />
     <Content Include="Views\Pedido\Pedido.cshtml" />
     <Content Include="Views\Cliente\ListaCliente.cshtml" />
+    <Content Include="Views\Produto\ListaProduto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

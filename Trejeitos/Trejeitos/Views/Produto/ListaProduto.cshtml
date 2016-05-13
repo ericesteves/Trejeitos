@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Lista de Produtos</title>
+</head>
+<body>
+    <div style="padding-left:50px; padding-right:50px">
+        <h1 style="font-family:Courier New, Courier, monospace">Lista de Produtos</h1>
+        <table class="table table-striped" style="font-family:Courier New, Courier, monospace">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Caminho da Imagem</th>
+                <th>Descrição</th>
+                <th>Coleção</th>
+                <th>Tamanho</th>
+                <th>Cor</th>
+                <th>Preço</th>
+                
+            </tr>
+
+            @foreach (var prod in Model)
+            {
+                <tr>
+                    <td>@prod.produtoId</td>
+                    <td>@prod.nome</td>
+                    <td>@prod.caminhoimg</td>
+                    <td>@prod.descricao</td>
+                    <td>@prod.colecao</td>
+                    <td>@prod.tamanho</td>
+                    <td>@prod.cor</td>
+                    <td>@prod.preco</td>
+                   
+                    <td>
+                        <a href="#">Editar</a>
+                        <a href="#">Apagar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
