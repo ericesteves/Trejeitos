@@ -16,11 +16,11 @@ namespace Trejeitos.Controllers
         }
 
         [HttpPost]
-        public ActionResult Autenticar(FormCollection form)
+        public ActionResult Login(FormCollection form)
         {
             if (!ModelState.IsValid)
             {
-                return View(form);
+                return View();
             }
 
             using (LoginModel clilogin = new LoginModel())
