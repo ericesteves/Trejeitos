@@ -14,7 +14,7 @@ namespace Trejeitos.Models
         public string colecao { get; set; }
         public string tamanho { get; set; }
         public string cor { get; set; }
-        public Decimal preco { get; set; }
+        public decimal preco { get; set; }
     }
 }
 

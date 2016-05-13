@@ -25,7 +25,7 @@ namespace Trejeitos.Controllers
             prod.colecao = form["colecao"];
             prod.tamanho = form["tamanho"];
             prod.cor = form["cor"];
-            prod.preco = Convert.ToDecimal(form["preco"]);
+            prod.preco = decimal.Parse(form["preco"]);
            
             ProdutoModel prodmodel = new ProdutoModel();
             prodmodel.Incluir(prod);

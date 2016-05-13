@@ -52,4 +52,4 @@ create table Carrinho
 	primary key(numero_pedido,codigo_produto)
 )
 
-select * from Clientes
+select * from Produtos
