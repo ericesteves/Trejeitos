@@ -123,6 +123,8 @@
     </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteModel.cs" />
+    <Compile Include="Models\ListProduto.cs" />
+    <Compile Include="Models\ListProdutoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Produto.cs" />

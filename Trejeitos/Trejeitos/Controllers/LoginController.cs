@@ -34,7 +34,7 @@ namespace Trejeitos.Controllers
                 }
                 else
                 {
-                    Session["user"] = cli;
+                    Session["nome"] = cli.nome;
                 }
             }
             return RedirectToAction("Inicio", "Inicio");
@@ -42,8 +42,8 @@ namespace Trejeitos.Controllers
 
         public ActionResult Sair()
         {
-            Session.Remove("user");
-            return RedirectToAction("Login");
+            Session.Remove("nome");
+            return RedirectToAction("Inicio", "Inicio");
         }
     }
 }

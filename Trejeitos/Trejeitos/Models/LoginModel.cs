@@ -24,6 +24,7 @@ namespace Trejeitos.Models
             if (login.Read())
             {
                 cli = new Cliente();
+                cli.nome = (string)login["nome"];
                 cli.email = (string)login["email"];
                 cli.senha = (string)login["senha"];
             }
