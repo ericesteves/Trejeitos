@@ -10,7 +10,7 @@ namespace Trejeitos.Models
     {
         public void Incluir(Cliente cli)
         {
-            SqlCommand sql = new SqlCommand();
+            SqlCommand sql = new SqlCommand(); //vagabunda
             sql.Connection = conn;
             sql.CommandText = "insert into Clientes values (@nome,@email,@senha,@rg,@cpf,@data_nascimento,@endereco,@cidade,@estado,@telefone)";
             sql.Parameters.AddWithValue("@nome", cli.nome);
