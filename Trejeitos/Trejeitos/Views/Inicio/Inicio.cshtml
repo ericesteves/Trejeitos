@@ -18,9 +18,9 @@
         <h1 style="padding-left:10px;">Trejeitos - Sua loja da moda</h1>
     </div>
     <div class="row" style="text-align:center">
-        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;">Novidades</a></div>
-        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;">Acessórios</a></div>
-        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;">Coleções</a></div>
+        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;"> Novidades</a></div>
+        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;"> Acessórios</a></div>
+        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;"> Coleções</a></div>
         
         <div class="col-lg-3">
             @{ 
@@ -28,7 +28,7 @@
                 {
                     <label>Bem vindo, @Session["nome"]</label>
                     <br />
-                    <a href="/Login/Sair">Sair</a>
+                    <label>Itens do carrinho: @Session["itens"] | </label><a href="/Login/Sair"> Sair</a>
                 }
                 else
                 {
@@ -54,8 +54,8 @@
                     <div class="caption">
                         <h3>@prod.nome</h3>
                         <p>@prod.descricao</p>
-                        <p>@prod.colecao</p> <p>@prod.preco</p>
-                        <p><a href="/Carrinho/AddCarrinho" class="btn btn-primary" role="button">Comprar</a> </p>
+                        <p>@prod.colecao | @prod.tamanho | @prod.preco</p>
+                        <p><a href="/Inicio/Comprar?codigo=@prod.codigo" class="btn btn-primary" role="button">Comprar</a> </p>
                     </div>
                 </div>
             </div>
