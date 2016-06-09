@@ -34,7 +34,11 @@ namespace Trejeitos.Controllers
                 }
                 else
                 {
+                    List<Produto> carrinho = new List<Produto>();
+                    Session["user"] = cli;
                     Session["nome"] = cli.nome;
+                    Session["carrinho"] = carrinho;
+                    Session["itens"] = carrinho.Count();
                 }
             }
             return RedirectToAction("Inicio", "Inicio");

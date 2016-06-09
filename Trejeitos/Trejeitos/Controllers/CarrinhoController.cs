@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Trejeitos.Models;
 
 namespace Trejeitos.Controllers
 {
@@ -11,7 +12,9 @@ namespace Trejeitos.Controllers
         // GET: Carrinho
         public ActionResult Carrinho()
         {
-            return View();
+            List<Produto> lista = (List<Produto>)Session["carrinho"];
+
+            return View(lista);
         }
     }
 }

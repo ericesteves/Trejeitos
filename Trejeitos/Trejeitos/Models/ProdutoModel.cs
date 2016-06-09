@@ -20,7 +20,7 @@ namespace Trejeitos.Models
             sql.Parameters.AddWithValue("@tamanho", prod.tamanho);
             sql.Parameters.AddWithValue("@cor", prod.cor);
             sql.Parameters.AddWithValue("@preco", prod.preco);
-           
+
             sql.ExecuteNonQuery();
         }
 
@@ -47,6 +47,29 @@ namespace Trejeitos.Models
                 lista.Add(prod);
             }
             return lista;
+        }
+
+        public Produto Buscar(int codigo)
+        {
+            Produto produto = new Produto();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "select * from Produtos where codigo = @codigo";
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            cmd.Connection = conn;
+
+            SqlDataReader produtos = cmd.ExecuteReader();
+            if (produtos.Read())
+            {
+                produto.produtoId = (int)produtos["codigo"];
+                produto.nome = (string)produtos["nome"];
+                produto.caminhoimg = (string)produtos["imagem"];
+                produto.descricao = (string)produtos["descricao"];
+                produto.colecao = (string)produtos["colecao"];
+                produto.tamanho = (string)produtos["tamanho"];
+                produto.cor = (string)produtos["cor"];
+                produto.preco = (int)produtos["preco"];
+            }
+            return produto;
         }
     }
 }

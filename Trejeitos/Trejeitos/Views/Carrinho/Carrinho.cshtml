@@ -16,27 +16,32 @@
         <h1 style="padding-left:10px;">Trejeitos - Sua loja da moda</h1>
     </div>
     <h1> Resumo do carrinho</h1>
-        <div class="row thumbnail" style="background-color:lightgray; margin-left:10px; margin-right:10px">
-            <div class="col-md-2">
-                <img src="~/img/001.png" alt="Nome do Produto" style="width:135px;  height:180px;">
+    @{
+            foreach (var prod in Model)
+            {
+            <div class="row thumbnail" style="background-color:lightgray; margin-left:10px; margin-right:10px">
+                <div class="col-md-2">
+                    <img src="@prod.caminhoimg" alt="Nome do Produto" style="width:135px;  height:180px;">
+                </div>
+                <div class="col-md-3" style="margin-top:40px">
+                    <h3>@prod.nome</h3>
+                    <p> @prod.colecao</p>
+                    <p> @prod.cor | @prod.tamanho</p>
+                </div>
+                <div class="col-md-3" style="margin-top:70px;">
+                    <label>Qtd:</label>
+                    <input type="text" name="qtd" />
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                </div>
+                <div class="col-md-2" style="margin-top:70px">
+                    <label>@prod.preco</label>
+                </div>
             </div>
-            <div class="col-md-3" style="margin-top:40px">
-                <h3>Nome do Produto</h3>
-                <p> Coleção Primavera / Verão 2015</p>
-                <p> Cor: Preto | Tam: M</p>
-            </div>
-            <div class="col-md-3" style="margin-top:70px;">
-                <label>Qtd:</label>
-                <input type="text" name="qtd" />
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"</span></button>
-            </div>
-            <div class="col-md-2" style="margin-top:70px">
-                <label>R$ 199,90</label>
-            </div>
-        </div>
-
+        }
+    }    
+   
     <div class="row thumbnail" style="background-color:lightgray; margin-left:10px; margin-right:10px">
         <div class="col-md-2">
             <img src="~/img/001.png" alt="Nome do Produto" style="width:135px;  height:180px;">
@@ -51,7 +56,7 @@
             <input type="text" width="15px" name="qtd" />
         </div>
         <div class="col-md-2">
-            <button class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"</span></button>
+            <button class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"></span></button>
         </div>
         <div class="col-md-2" style="margin-top:70px">
             <label>R$ 199,90</label>
