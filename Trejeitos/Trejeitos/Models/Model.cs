@@ -12,11 +12,11 @@ namespace Trejeitos.Models
 
         public Model()
         {
-            string strConn = @"Data Source = Notebook;
+            string strConn = @"Data Source = localhost;
                 Initial Catalog= bdTrejeitos;
                 Integrated Security= false;
                 User Id = sa;
-                Password = 10274011";
+                Password = pedro";
             conn = new SqlConnection(strConn);
             conn.Open();
         }
