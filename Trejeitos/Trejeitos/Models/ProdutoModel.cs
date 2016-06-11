@@ -67,7 +67,7 @@ namespace Trejeitos.Models
                 produto.colecao = (string)produtos["colecao"];
                 produto.tamanho = (string)produtos["tamanho"];
                 produto.cor = (string)produtos["cor"];
-                produto.preco = (int)produtos["preco"];
+                produto.preco = (decimal)produtos["preco"];
             }
             return produto;
         }

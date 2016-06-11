@@ -52,5 +52,51 @@ namespace Trejeitos.Models
             }
             return lista;
         }
+
+        public Cliente Editar(int id)
+        {
+            Cliente cli = new Cliente();
+            List<Cliente> lista = new List<Cliente>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "select * from Clientes where clienteid = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.Connection = conn;
+
+            SqlDataReader clientes = cmd.ExecuteReader();
+            if (clientes.Read())
+            { 
+                cli.clienteid = (int)clientes["clienteid"];
+                cli.nome = (string)clientes["nome"];
+                cli.email = (string)clientes["email"];
+                cli.rg = (string)clientes["rg"];
+                cli.cpf = (string)clientes["cpf"];
+                cli.data_nascimento = (string)clientes["data_nascimento"];
+                cli.endereco = (string)clientes["endereco"];
+                cli.cidade = (string)clientes["cidade"];
+                cli.estado = (string)clientes["estado"];
+                cli.telefone = (string)clientes["telefone"];
+            }
+            return cli;
+        }
+
+        public void Alterar(Cliente cli)
+        {
+            SqlCommand sql = new SqlCommand(); //vagabunda
+            sql.Connection = conn;
+            sql.CommandText = "update Clientes set (nome = @nome, email = @email,senha = @senha, rg = @rg, cpf = @cpf, data_nascimento = @data_nascimento, endereco = @endereco, cidade = @cidade, estado = @estado, telefone = @telefone where clienteid = @id)";
+            sql.Parameters.AddWithValue("@nome", cli.nome);
+            sql.Parameters.AddWithValue("@email", cli.email);
+            sql.Parameters.AddWithValue("@senha", cli.senha);
+            sql.Parameters.AddWithValue("@rg", cli.rg);
+            sql.Parameters.AddWithValue("@cpf", cli.cpf);
+            sql.Parameters.AddWithValue("@Data_nascimento", cli.data_nascimento);
+            sql.Parameters.AddWithValue("@endereco", cli.endereco);
+            sql.Parameters.AddWithValue("@cidade", cli.cidade);
+            sql.Parameters.AddWithValue("@estado", cli.estado);
+            sql.Parameters.AddWithValue("@telefone", cli.telefone);
+            sql.Parameters.AddWithValue("@clienteid", cli.clienteid);
+            sql.ExecuteNonQuery();
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Trejeitos.Models
                 prod.colecao = (string)prods["colecao"];
                 prod.tamanho = (string)prods["tamanho"];
                 prod.cor = (string)prods["cor"];
-                prod.preco = (int)prods["preco"];
+                prod.preco = (decimal)prods["preco"];
 
                 lista.Add(prod);
             }
@@ -51,7 +51,7 @@ namespace Trejeitos.Models
                 prod.colecao = (string)prods["colecao"];
                 prod.tamanho = (string)prods["tamanho"];
                 prod.cor = (string)prods["cor"];
-                prod.preco = (int)prods["preco"];
+                prod.preco = (decimal)prods["preco"];
 
                 lista.Add(prod);
             }
@@ -76,7 +76,7 @@ namespace Trejeitos.Models
                 prod.colecao = (string)prods["colecao"];
                 prod.tamanho = (string)prods["tamanho"];
                 prod.cor = (string)prods["cor"];
-                prod.preco = (int)prods["preco"];
+                prod.preco = (decimal)prods["preco"];
 
                 lista.Add(prod);
             }
