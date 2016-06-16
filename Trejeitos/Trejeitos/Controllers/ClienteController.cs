@@ -48,27 +48,37 @@ namespace Trejeitos.Controllers
         {
             ClienteModel climodel = new ClienteModel();
             Cliente cliente = climodel.Editar(id);
+            TempData["cliente"] = cliente;
+            return View("Editar");
+        }
 
-            return View("Editar", cliente);
+        public ActionResult Excluir(int id)
+        {
+            ClienteModel climodel = new ClienteModel();
+            climodel.Excluir(id);
+            return RedirectToAction("ListaCliente");
         }
 
         [HttpPost]
-        public ActionResult Alterar(FormCollection form)
+        public ActionResult Alterar(FormCollection form1)
         {
-            Cliente cli = new Cliente();
-            cli.nome = form["nome"];
-            cli.email = form["email"];
-            cli.rg = form["rg"];
-            cli.cpf = form["cpf"];
-            cli.senha = form["senha"];
-            cli.data_nascimento = form["data_nascimento"];
-            cli.cidade = form["cidade"];
-            cli.estado = form["estado"];
-            cli.endereco = form["endereco"];
-            cli.telefone = form["telefone"];
+            Cliente cli1 = new Cliente();
+            cli1.clienteid = (int)TempData["id"];
+            cli1.nome = form1["nome"];
+            cli1.email = form1["email"];
+            cli1.rg = form1["rg"];
+            cli1.cpf = form1["cpf"];
+            cli1.senha = form1["senha"];
+            cli1.data_nascimento = form1["data_nascimento"];
+            cli1.cidade = form1["cidade"];
+            cli1.estado = form1["estado"];
+            cli1.endereco = form1["endereco"];
+            cli1.telefone = form1["telefone"];
 
-            ClienteModel climodel = new ClienteModel();
-            climodel.Alterar(cli);
+            using (ClienteModel climodel = new ClienteModel())
+            {
+                climodel.Alterar(cli1);
+            }
 
             return RedirectToAction("ListaCliente", "Cliente");
         }

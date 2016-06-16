@@ -56,7 +56,6 @@ namespace Trejeitos.Models
         public Cliente Editar(int id)
         {
             Cliente cli = new Cliente();
-            List<Cliente> lista = new List<Cliente>();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "select * from Clientes where clienteid = @id";
             cmd.Parameters.AddWithValue("@id", id);
@@ -80,22 +79,31 @@ namespace Trejeitos.Models
             return cli;
         }
 
-        public void Alterar(Cliente cli)
+        public void Alterar(Cliente cli1)
         {
             SqlCommand sql = new SqlCommand(); //vagabunda
             sql.Connection = conn;
-            sql.CommandText = "update Clientes set (nome = @nome, email = @email,senha = @senha, rg = @rg, cpf = @cpf, data_nascimento = @data_nascimento, endereco = @endereco, cidade = @cidade, estado = @estado, telefone = @telefone where clienteid = @id)";
-            sql.Parameters.AddWithValue("@nome", cli.nome);
-            sql.Parameters.AddWithValue("@email", cli.email);
-            sql.Parameters.AddWithValue("@senha", cli.senha);
-            sql.Parameters.AddWithValue("@rg", cli.rg);
-            sql.Parameters.AddWithValue("@cpf", cli.cpf);
-            sql.Parameters.AddWithValue("@Data_nascimento", cli.data_nascimento);
-            sql.Parameters.AddWithValue("@endereco", cli.endereco);
-            sql.Parameters.AddWithValue("@cidade", cli.cidade);
-            sql.Parameters.AddWithValue("@estado", cli.estado);
-            sql.Parameters.AddWithValue("@telefone", cli.telefone);
-            sql.Parameters.AddWithValue("@clienteid", cli.clienteid);
+            sql.CommandText = "update Clientes set nome = @nome, email = @email,senha = @senha, rg = @rg, cpf = @cpf, data_nascimento = @data_nascimento, endereco = @endereco, cidade = @cidade, estado = @estado, telefone = @telefone where Clienteid = @id";
+            sql.Parameters.AddWithValue("@nome", cli1.nome);
+            sql.Parameters.AddWithValue("@email", cli1.email);
+            sql.Parameters.AddWithValue("@senha", cli1.senha);
+            sql.Parameters.AddWithValue("@rg", cli1.rg);
+            sql.Parameters.AddWithValue("@cpf", cli1.cpf);
+            sql.Parameters.AddWithValue("@Data_nascimento", cli1.data_nascimento);
+            sql.Parameters.AddWithValue("@endereco", cli1.endereco);
+            sql.Parameters.AddWithValue("@cidade", cli1.cidade);
+            sql.Parameters.AddWithValue("@estado", cli1.estado);
+            sql.Parameters.AddWithValue("@telefone", cli1.telefone);
+            sql.Parameters.AddWithValue("@id", cli1.clienteid);
+            sql.ExecuteNonQuery();
+        }
+
+        public void Excluir(int id)
+        {
+            SqlCommand sql = new SqlCommand(); //vagabunda
+            sql.Connection = conn;
+            sql.CommandText = "delete from Clientes where clienteid = @id";
+            sql.Parameters.AddWithValue("@id", id);
             sql.ExecuteNonQuery();
         }
     }
