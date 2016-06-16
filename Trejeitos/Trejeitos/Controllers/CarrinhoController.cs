@@ -20,7 +20,7 @@ namespace Trejeitos.Controllers
         public ActionResult RemoveItem(int codigo)
         {
             List<Produto> lista = (List<Produto>)Session["carrinho"];
-            lista.Remove(lista.Find(delegate(Produto p) { return p.produtoId == codigo; }));
+            lista.Remove(lista.Find(delegate(Produto p) { return p.codigo == codigo; }));
             if(lista.Count() == 0)
             {
                 ViewBag.Mensagem = "Opa, seu carrinho está vazio! Clique em 'Continuar Comprando' para retornar a pagina de produtos";

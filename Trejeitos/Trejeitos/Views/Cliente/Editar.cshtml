@@ -2,7 +2,7 @@
 @{
     Layout = null;
     Trejeitos.Models.Cliente cli = (Trejeitos.Models.Cliente)TempData["cliente"];
-    TempData["id"] = cli.clienteid;
+
 }
 
 <!DOCTYPE html>
@@ -27,67 +27,71 @@
     </head>
         <body>
     <div class="container">
-        <div class="well" style="color: maroon;background-color:transparent; border-color:brown ; border-width: 1.5px; text-align:center; font-size: 40px; font-family:'AR JULIAN'">Alteração</div>
+        <div class="well" style="color: maroon;background-color:transparent; border-color:brown ; border-width: 1.5px; text-align:center; font-size: 40px; font-family:'AR JULIAN'">Alteração de Clientes</div>
     </div>
         <div class="col-lg-6 col-lg-offset-5">
             <form action="/Cliente/Alterar" method="post">
 
-                <div class="form-group" style="text-align: center">
+                <div class="form-group" style="text-align: left">
 
-                    <label>Nome</label>
-                    <input class="form-control" type="text" name="nome" value="@cli.nome" />
-
-                    <div class="form-group" style="text-align: center">
-                        <label>CPF</label>
-                        <input class="form-control" type="text" name="cpf" value="@cli.cpf" />
-                    </div>
+                    <label>Nº Cliente</label>
+                    <input class="form-control" style="width:70px;" type="text" name="clienteid" value="@cli.clienteid" readonly />
 
                     <div class="form-group" style="text-align: center">
-                        <label>RG</label>
-                        <input class="form-control" type="text" name="rg" value="@cli.rg" />
+                        <label>Nome</label>
+                        <input class="form-control" type="text" name="nome" value="@cli.nome" />
                     </div>
+                        <div class="form-group" style="text-align: center">
+                            <label>CPF</label>
+                            <input class="form-control" type="text" name="cpf" value="@cli.cpf" />
+                        </div>
 
-                    <div class="form-group" style="text-align: center">
-                        <label>Data de Nascimento</label>
-                        <input class="form-control" type="text" name="data_nascimento" value="@cli.data_nascimento" />
-                    </div>
+                        <div class="form-group" style="text-align: center">
+                            <label>RG</label>
+                            <input class="form-control" type="text" name="rg" value="@cli.rg" />
+                        </div>
 
-                    <div class="form-group" style="text-align: center">
-                        <label>Endereço</label>
-                        <input class="form-control" type="text" name="endereco" value="@cli.endereco" />
-                    </div>
-                    <div class="form-group" style="text-align: center">
-                        <label>Cidade</label>
-                        <input class="form-control" type="text" name="cidade" value="@cli.cidade" />
-                    </div>
-                    <div class="form-group" style="text-align: center">
-                        <label>Estado</label>
-                        <input class="form-control" type="text" name="estado" value="@cli.estado" />
-                    </div>
+                        <div class="form-group" style="text-align: center">
+                            <label>Data de Nascimento</label>
+                            <input class="form-control" type="text" name="data_nascimento" value="@cli.data_nascimento" />
+                        </div>
 
-                    <div class="form-group" style="text-align: center">
-                        <label>Telefone/Celular</label>
-                        <input class="form-control" type="tel" name="telefone" value="@cli.telefone" />
+                        <div class="form-group" style="text-align: center">
+                            <label>Endereço</label>
+                            <input class="form-control" type="text" name="endereco" value="@cli.endereco" />
+                        </div>
+                        <div class="form-group" style="text-align: center">
+                            <label>Cidade</label>
+                            <input class="form-control" type="text" name="cidade" value="@cli.cidade" />
+                        </div>
+                        <div class="form-group" style="text-align: center">
+                            <label>Estado</label>
+                            <input class="form-control" type="text" name="estado" value="@cli.estado" />
+                        </div>
+
+                        <div class="form-group" style="text-align: center">
+                            <label>Telefone/Celular</label>
+                            <input class="form-control" type="tel" name="telefone" value="@cli.telefone" />
+                        </div>
+
+                        <div class="form-group" style="text-align: center">
+                            <label>Email</label>
+                            <input class="form-control" type="text" name="email" value="@cli.email" />
+                        </div>
+
+                        <div class="form-group" style="text-align: center">
+                            <label>Senha de Acesso</label>
+                            <input class="form-control" type="password" name="senha" value="@cli.senha" />
+                        </div>
+
+                        <button type="submit" class="btn btn-success">
+                            <span class="glyphicon glyphicon-floppy-disk"></span>Salvar
+                        </button>
+
+                        <a href="/Inicio/Inicio" class="btn btn-sm btn-default">
+                            <span class="glyphicon glyphicon-arrow-left"></span>Voltar
+                        </a>
                     </div>
-
-                    <div class="form-group" style="text-align: center">
-                        <label>Email</label>
-                        <input class="form-control" type="text" name="email" value="@cli.email" />
-                    </div>
-
-                    <div class="form-group" style="text-align: center">
-                        <label>Senha de Acesso</label>
-                        <input class="form-control" type="password" name="senha" value="@cli.senha" />
-                    </div>
-
-                    <button type="submit" class="btn btn-success">
-                        <span class="glyphicon glyphicon-floppy-disk"></span>Salvar
-                    </button>
-
-                    <a href="/Inicio/Inicio" class="btn btn-sm btn-default">
-                        <span class="glyphicon glyphicon-arrow-left"></span>Voltar
-                    </a>
-                </div>
             </form>
         </div>
 </body>

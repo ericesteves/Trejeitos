@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+    Trejeitos.Models.Produto prod = (Trejeitos.Models.Produto)TempData["prod"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Cadastro de Produtos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <style>
+        #control-group {
+            width: 400px;
+            margin: auto;
+        }
+
+        body {
+            background-image: url(https://images6.alphacoders.com/313/313679.jpg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="well" style="color: maroon;background-color:transparent; border-color:brown ; border-width: 1.5px; text-align:center; font-size: 40px; font-family:'AR JULIAN'">Produto</div>
+    </div>
+
+    <div class="col-lg-6 col-lg-offset-5">
+        <form action="/Produto/AlterarProduto" method="post">
+
+            <div class="form-group" style="text-align: left">
+                <label>Código</label>
+                <input class="form-control"style="width:70px" type="text" name="codigo" value="@prod.codigo" readonly/>
+            </div>
+            
+            <div class="form-group" style="text-align: center">
+                <label>Nome</label>
+                <input class="form-control" type="text" name="nome" value="@prod.nome" />
+            </div>
+
+            <div class="form-group" style="text-align: center">
+                <label class="control-label">Selecione a Imagem do Produto</label>
+                <input id="input-2" name="imagem" type="file" class="file" multiple data-show-upload="false" data-show-caption="true" value="@prod.caminhoimg">
+            </div>
+
+            <div class="form-group" style="text-align: center">
+                <label>Descrição</label>
+                <textarea class="form-control" name="descricao" rows="3" id="comment" value="@prod.descricao"></textarea>
+            </div>
+
+
+            <div class="form-group" style="text-align: center">
+                <label>Tamanho</label>
+
+                <input class="form-control" type="text" name="tamanho" value="@prod.tamanho" />
+            </div>
+
+            <div class="form-group" style="text-align: center">
+                <label>Cor</label>
+                <input class="form-control" type="text" name="cor" value="@prod.cor" />
+            </div>
+
+            <div class="form-group" style="text-align: center">
+                <label>Preço</label>
+                <input class="form-control" type="text" name="preco" value="@prod.preco" />
+            </div>
+
+            <div class="form-group" style="text-align: center">
+                <label>Coleção</label>
+                <input class="form-control" type="text" name="colecao" value="@prod.colecao"/>
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">
+                <span class="glyphicon glyphicon-floppy-disk"></span>Salvar
+            </button>
+
+            <a href="/Inicio/Inicio" class="btn btn-sm btn-default">
+                <span class="glyphicon glyphicon-arrow-left"></span>Voltar
+            </a>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -30,7 +30,7 @@
             @foreach (var prod in Model)
             {
                 <tr>
-                    <td>@prod.produtoId</td>
+                    <td>@prod.codigo</td>
                     <td>@prod.nome</td>
                     <td>@prod.caminhoimg</td>
                     <td>@prod.descricao</td>
@@ -38,10 +38,10 @@
                     <td>@prod.tamanho</td>
                     <td>@prod.cor</td>
                     <td>@prod.preco</td>
-                   
+
                     <td>
-                        <a href="#">Editar</a>
-                        <a href="#">Apagar</a>
+                        <a href="/Produto/Editar?codigo=@prod.codigo">Editar</a>
+                        <a href="/Produto/Excluir?codigo=@prod.codigo">Apagar</a>
                     </td>
                 </tr>
             }

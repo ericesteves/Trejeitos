@@ -7,7 +7,7 @@ namespace Trejeitos.Models
 {
     public class Produto
     {
-        public int produtoId  { get; set; }
+        public int codigo  { get; set; }
         public string nome { get; set; }
         public string caminhoimg { get; set; }
         public string descricao { get; set; }

@@ -36,7 +36,7 @@ namespace Trejeitos.Models
             {
                 Produto prod = new Produto();
 
-                prod.produtoId = (int)produtos["codigo"];
+                prod.codigo = (int)produtos["codigo"];
                 prod.nome = (string)produtos["nome"];
                 prod.caminhoimg = (string)produtos["imagem"];
                 prod.descricao = (string)produtos["descricao"];
@@ -60,7 +60,7 @@ namespace Trejeitos.Models
             SqlDataReader produtos = cmd.ExecuteReader();
             if (produtos.Read())
             {
-                produto.produtoId = (int)produtos["codigo"];
+                produto.codigo = (int)produtos["codigo"];
                 produto.nome = (string)produtos["nome"];
                 produto.caminhoimg = (string)produtos["imagem"];
                 produto.descricao = (string)produtos["descricao"];
@@ -70,6 +70,32 @@ namespace Trejeitos.Models
                 produto.preco = (decimal)produtos["preco"];
             }
             return produto;
+        }
+
+        public void Alterar(Produto prod)
+        {
+            SqlCommand sql = new SqlCommand();
+            sql.Connection = conn;
+            sql.CommandText = "update Produtos set nome = @nome, imagem = @imagem, descricao = @descricao, colecao = @colecao, tamanho = @tamanho, cor = @cor, preco = @preco where codigo = @codigo";
+            sql.Parameters.AddWithValue("@nome", prod.nome);
+            sql.Parameters.AddWithValue("@imagem", prod.caminhoimg);
+            sql.Parameters.AddWithValue("@descricao", prod.descricao);
+            sql.Parameters.AddWithValue("@colecao", prod.colecao);
+            sql.Parameters.AddWithValue("@tamanho", prod.tamanho);
+            sql.Parameters.AddWithValue("@cor", prod.cor);
+            sql.Parameters.AddWithValue("@preco", prod.preco);
+            sql.Parameters.AddWithValue("@codigo", prod.codigo);
+
+            sql.ExecuteNonQuery();
+        }
+
+        public void Excluir(int codigo)
+        {
+            SqlCommand sql = new SqlCommand(); //vagabunda
+            sql.Connection = conn;
+            sql.CommandText = "delete from Produtos where codigo = @codigo";
+            sql.Parameters.AddWithValue("@codigo", codigo);
+            sql.ExecuteNonQuery();
         }
     }
 }

@@ -63,7 +63,7 @@ namespace Trejeitos.Controllers
         public ActionResult Alterar(FormCollection form1)
         {
             Cliente cli1 = new Cliente();
-            cli1.clienteid = (int)TempData["id"];
+            cli1.clienteid = int.Parse(form1["clienteid"]);
             cli1.nome = form1["nome"];
             cli1.email = form1["email"];
             cli1.rg = form1["rg"];
