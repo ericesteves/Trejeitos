@@ -1,6 +1,8 @@
 ﻿
 @{
     Layout = null;
+    Trejeitos.Models.Cliente cli = (Trejeitos.Models.Cliente)Session["user"];
+    decimal total = 0;
 }
 
 <!DOCTYPE html>
@@ -11,71 +13,81 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <title>Carrinho de Compras</title>
 </head>
-<body>
-    <div class="page-header" style="height:40px; border-bottom:double;">
-        <h1 style="padding-left:10px;">Trejeitos - Sua loja da moda</h1>
+<body style="background-color:bisque">
+    <div class="container">
+        <div class="jumbotron" style="background-color:darksalmon; color:white">
+            <h1>Trejeitos.com</h1>
+            <p>A sua loja da moda</p>
+
+        </div>
     </div>
-    <h1> Resumo do carrinho</h1>
+    <h1 style="padding-left: 20px; color: brown"> Resumo do carrinho</h1>
     @{
-        if (!(ViewBag.Mensagem == null))
+        if (!(TempData["msg"] == null))
         {
-            <div class="row thumbnail"><label>@ViewBag.Mensagem</label></div>
+            <div class="row" style="background-color:brown; text-align:center"><label style="color:white">@TempData["msg"]</label></div>
         }
 
         foreach (var prod in Model)
         {
-        <div class="row thumbnail" style="background-color:lightgray; margin-left:10px; margin-right:10px">
-            <div class="col-md-2">
-                <img src="@prod.caminhoimg" alt="Nome do Produto" style="width:135px;  height:180px;">
+            <div class="row thumbnail" style="background-color:wheat; margin-left:10px; margin-right:10px; border:solid 1px darksalmon">
+                <div class="col-md-2">
+                    <img src="@prod.caminhoimg" alt="Nome do Produto" style="width:135px;  height:180px;">
+                </div>
+                <div class="col-md-3" style="margin-top:40px">
+                    <h3 style="color:brown">@prod.nome</h3>
+                    <p style="color:brown"> @prod.colecao</p>
+                    <p style="color:brown"> @prod.cor | Tam: @prod.tamanho</p>
+                </div>
+                <div class="col-md-3" style="margin-top:70px;">
+                    <label style="color:brown">Qtd:</label>
+                    <input style="width:25px" type="text" value="1" name="qtd" />
+                </div>
+                <div class="col-md-2">
+                    <a href="/Carrinho/RemoveItem?codigo=@prod.codigo" class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+                <div class="col-md-2" style="margin-top:70px">
+                    <label style="color:brown">R$ @prod.preco</label>
+                </div>
             </div>
-            <div class="col-md-3" style="margin-top:40px">
-                <h3>@prod.nome</h3>
-                <p> @prod.colecao</p>
-                <p> @prod.cor | Tam: @prod.tamanho</p>
-            </div>
-            <div class="col-md-3" style="margin-top:70px;">
-                <label>Qtd:</label>
-                <input style="width:25px" type="text" value="1" name="qtd" />
-            </div>
-            <div class="col-md-2">
-                <a href="/Carrinho/RemoveItem?codigo=@prod.codigo" class="btn btn-xs btn-danger" style="margin-top:70px;" type="button"><span class="glyphicon glyphicon-remove"></span></a>
-            </div>
-            <div class="col-md-2" style="margin-top:70px">
-                <label>R$ @prod.preco</label>
-            </div>
-        </div>
         }
 
 
-    }    
+    }
 
     <div class="row" style="padding:2px; margin-left:10px;">
-        <div class="col-md-4 thumbnail" style="padding-top:20px; padding-bottom:20px; padding-left:10px;background-color:lightgray; width:40%">
-            <p style="font-family:Verdana;text-align:center"> Dados do Comprador</p>
-                <label>Cliente:</label>
-                <p><em>Pedro Regino Pires</em></p><br />
-                <label>Endereço:</label><br />
-                <p><em>Rua Saldanha Marinho, 3500, Ap:54<br />CEP:15046-000 São José do Rio Preto-SP</em></p>
-                <label>Cliente desde: 05/2015</label>
+        <div class="col-md-4 thumbnail" style="padding-top:20px; padding-bottom:20px; padding-left:10px;background-color:wheat; width:40%; border:solid 1px darksalmon">
+            <p style="font-family:Verdana;text-align:center; color:brown"> Dados do Comprador</p>
+            <label style="color:brown">Cliente:</label>
+            <p style="color:brown"><em>@cli.nome</em></p><br />
+            <label style="color:brown">Endereço:</label><br />
+            <p style="color:brown"><em>@cli.endereco<br />@cli.cidade @cli.estado</em></p>
         </div>
         <div class="col-md-2" style="margin-left:40px; padding-top:20px; padding-bottom:20px; padding-left:10px">
-            <label>Tem um cupom de desconto?<br /> Digite o código aqui</label>
-            <input type="text" name="desconto" />
-            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-check"></span>  Validar cupom</button>
+            <label style="color:brown">Tem um cupom de desconto?<br /> Digite o código aqui</label>
+            <input type="text" name="desconto" /> <br />
+            <br />
+            <button class="btn btn-default" type="button" style="background-color: wheat; border:1px solid brown"><span class="glyphicon glyphicon-check"></span>  Validar cupom</button>
         </div>
         <div class="col-md-2" style="margin-left:40px; padding-top:20px; padding-bottom:20px; padding-left:10px; width: 20%">
-            <label>Frete:</label><br />
-            <p title="frete"><em>Grátis</em></p>
+            <label style="color:brown">Frete:</label><br />
+            <p title="frete" style="color:brown"><em>Grátis</em></p>
             <br>
-            <label>Desconto:</label><br />
-            <p title="desconto1"> R$0,00</p>
+            <label style="color:brown">Desconto:</label><br />
+            <p title="desconto1" style="color:brown"> R$ 0,00</p>
             <br>
-            <label>Total da compra:</label><br />
-            <p title="total"> R$299,80</p>
+            <label style="color:brown">Total da compra:</label><br />
+            @{
+                foreach (var prod in Model)
+                {
+                    total = total + @prod.preco;
+                }
+            }
+            <p title="total" style="color:brown">R$ @total </p>
         </div>
         <div class="col-md-2" style="margin-top:20px; margin-left:10px">
-            <a href="/Pedido/Pedido" style="margin-top:20px; margin-left:15px"class="btn btn-success" type="submit"><span class="glyphicon glyphicon-check"></span>  Finalizar Compra</a><br />
-            <a href="/Inicio/Inicio" style="margin-top:20px; margin-left:5px" class="btn btn-default" type="button"><span class="glyphicon glyphicon-arrow-left"></span>  Continuar comprando</a>
+            <a href="/Pedido/Pedido" style="margin-top:20px; background-color: darksalmon;border:1px solid brown; margin-left:15px" class="btn btn-success" type="submit"><span class="glyphicon glyphicon-check"></span>  Finalizar Compra</a><br />
+            <a href="/Inicio/Inicio" style="margin-top:20px; background-color:wheat; border: 1px solid brown; margin-left:5px" class="btn btn-default" type="button"><span class="glyphicon glyphicon-arrow-left"></span>  Continuar comprando</a>
         </div>
     </div>
 </body>

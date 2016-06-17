@@ -23,7 +23,7 @@ namespace Trejeitos.Controllers
             lista.Remove(lista.Find(delegate(Produto p) { return p.codigo == codigo; }));
             if(lista.Count() == 0)
             {
-                ViewBag.Mensagem = "Opa, seu carrinho está vazio! Clique em 'Continuar Comprando' para retornar a pagina de produtos";
+                TempData["msg"] = "Opa, seu carrinho está vazio! Clique em 'Continuar Comprando' para retornar a pagina de produtos";
             }
             Session["carrinho"] = lista;
 
