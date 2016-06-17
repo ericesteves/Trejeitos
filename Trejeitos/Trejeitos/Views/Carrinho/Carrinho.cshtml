@@ -81,6 +81,7 @@
                 foreach (var prod in Model)
                 {
                     total = total + @prod.preco;
+                    Session["total"] = total;
                 }
             }
             <p title="total" style="color:brown">R$ @total </p>

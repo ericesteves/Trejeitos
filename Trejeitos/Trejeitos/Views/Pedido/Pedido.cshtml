@@ -1,7 +1,9 @@
 ﻿
 @{
     Layout = null;
-    Trejeitos.Models.ListProduto lista = (Trejeitos.Models.ListProduto)TempData["carrinho"];
+    List<Trejeitos.Models.Produto> lista = (List<Trejeitos.Models.Produto>)Session["carrinho"];
+    decimal total = 0;
+    total = (decimal)(Session["total"]);
 }
 
 <!DOCTYPE html>
@@ -24,46 +26,48 @@
         <h1>Pedido - Pagamento</h1>
     </div>
     <div class="col-lg-2 thumbnail" style="margin-top:30px;margin-left:10px; margin-right:10px; padding-left:10px;padding-top:30px;border:1px solid brown; background-color:wheat">
-        <label style="color:brown">Número do pedido:</label><br />
-        <p>20150415009b1</p>
         <label style="color:brown">Quantidade de itens:</label><br />
-        <p>2</p>
+        <p>@lista.Count()</p>
         <label style="color:brown">Valor do pedido:</label><br />
-        <p>R$299,80</p>
+        <p>R$ @total</p>
     </div>
     <div class="col-lg-4 thumbnail" style="margin-top:30px; padding-bottom:30px;margin-left:40px; margin-right:10px; padding-left:10px;padding-top:30px;border:1px solid brown; background-color:wheat">
-        <div class="row col-lg-6">
-            <label style="color:brown">Pague com cartão de crédito!</label>
-            <div style="padding-top:10px">
-                <div style="margin-left:10px">
-                    <label style="color:brown">Numero do cartão</label> <br />
-                    <input type="text" name="cartao" style="width:200px" />
-                </div>
-                <div class="row" style="margin-left:10px">
-                    <label style="padding-top:5px;color:brown">Nome do Titular</label> <br />
-                    <input type="text" name="nome" style="width:220px" />
-                </div>
-                <div class="row" style="margin-left:10px">
-                    <label style="padding-top:5px;color:brown">Vencimento</label>
+        <form action="/Pedido/CalculaParcela" method="post">
+            <div class="row col-lg-6">
+                <label style="color:brown">Pague com cartão de crédito!</label>
+                <div style="padding-top:10px">
+                    <div style="margin-left:10px">
+                        <label style="color:brown">Numero do cartão</label> <br />
+                        <input type="text" name="cartao" value="@TempData["cartao"]" style="width:200px" />
+                    </div>
                     <div class="row" style="margin-left:10px">
-                        <label style="color:brown">Mês</label> <label style="padding-left:50px; color:brown">Ano</label>
-                        <div class="row">
-                            <input type="text" name="mes" style="width:50px; margin-left:10px" placeholder="MM" />
-                            <input type="text" name="ano" style="width:50px; margin-left:35px" placeholder="AA" />
+                        <label style="padding-top:5px;color:brown">Nome do Titular</label> <br />
+                        <input type="text" name="nome" value="@TempData["nome"]" style="width:220px" />
+                    </div>
+                    <div class="row" style="margin-left:10px">
+                        <label style="padding-top:5px;color:brown">Vencimento</label>
+                        <div class="row" style="margin-left:10px">
+                            <label style="color:brown">Mês</label> <label style="padding-left:50px; color:brown">Ano</label>
+                            <div class="row">
+                                <input type="text" name="mes" value="@TempData["mes"]" style="width:50px; margin-left:10px" placeholder="MM" />
+                                <input type="text" name="ano" value="@TempData["ano"]" style="width:50px; margin-left:35px" placeholder="AA" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row col-lg-6" style="padding-left:70px">
+                <label style="color:brown">Opções de Parcelamento:</label>
+                <label style="padding-top:10px;color:brown">Parcelamento</label> <br />
+                <input type="text" name="parcela" value="1" style="width:50px" /> <button type="submit" class="btn">Calcular</button><br />
+
+                <label style="padding-top:20px;color:brown">Valor da parcela:</label> <br />
+                <label style="padding-top:20px; color:brown">@ViewBag.parcela</label> <br />
+                <label style="padding-top:20px;color:brown">Valor Total:</label> <br />
+                <label>R$ @total</label>
+            </div>
+        </form>
     </div>
-        <div class="row col-lg-6" style="padding-left:70px">
-            <label style="color:brown">Opções de Parcelamento:</label>
-            <label style="padding-top:10px;color:brown">Parcelamento</label> <br />
-            <input type="text" name="parcela" style="width:50px"/> <br />
-            <label style="padding-top:20px;color:brown">Valor da parcela:</label> <br />
-            <label style="padding-top:20px;color:brown">Valor Total:</label> <br />
-            <label></label>
-        </div>
-        </div>
     <div class="col-lg-4 thumbnail" style="margin-top:30px; padding-bottom:30px;margin-left:40px; margin-right:10px; padding-left:10px;padding-top:30px;border:1px solid brown; background-color:wheat">
         <label style="color:brown">Ou você pode também...</label> <br />
         <div style="text-align:center; padding-top:50px; padding-bottom:50px">
