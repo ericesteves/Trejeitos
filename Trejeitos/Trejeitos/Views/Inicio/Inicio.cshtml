@@ -10,56 +10,61 @@
     <meta name="viewport" content="width=device-width" />
     <title>Inicio</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
+    
+          
 </head>
 
-<body>
-    <div class="page-header" style="height:40px; border-bottom:double;">
-        <h1 style="padding-left:10px;">Trejeitos - Sua loja da moda</h1>
-    </div>
-    <div class="row" style="text-align:center">
-        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;"> Novidades</a></div>
-        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;"> Acessórios</a></div>
-        <div class="col-lg-3" style=""><a href="#" style="font-size:14px;"> Coleções</a></div>
-        
-        <div class="col-lg-3">
-            @{ 
-                if (Session["nome"] != null)
-                {
-                    <label>Bem vindo, @Session["nome"]</label>
-                    <br />
-                    <label>Itens do carrinho: @Session["itens"] | </label><a href="/Login/Sair"> Sair</a>
-                }
-                else
-                {
-                    <label>Novo por aqui?</label>
-                    <a href="/Cliente/Cliente" class="btn btn-default btn-xs">Cadastre-se</a>
-                    <label>ou</label>
-                    <a href="/Login/Login" class="btn btn-default btn-xs">Entre</a>
-                }
-            }
+<body  style="background-color:bisque">
+    <div class="container">
+        <div class="jumbotron" style="background-color:darksalmon; color:white">
+            <h1>Trejeitos.com</h1>
+            <p>A sua loja da moda</p>
+            <p1>A melhor opção em moda feminina da Web</p1>
         </div>
-    <div class="row" style="border-top:double; padding-top:20px;">
-        <div class="col-lg-2 col-lg-offset-1"><label>Ordenar por</label></div>
-        <div class="col-lg-4"><label><input type="radio" name="vendidos" onclick="location.href='/Inicio/OrdenaPrecoAsc'">Menor Preço</label></div>
-        <div class="col-lg-4"><label><input type="radio" name="vendidos" onclick="location.href='/Inicio/OrdenaPrecoDesc'">Maior Preço</label></div>
-    </div>
-    <div class="row" style="padding:10px;">
-        @foreach (var prod in Model)
-        {
-            <div class="col-sm-9 col-md-3">
-                <div class="thumbnail">
-                    <img src="@prod.imagem" alt="Imagem do Produto" style="width:180px;  height:240px;">
-                    <div class="caption">
-                        <h3>@prod.nome</h3>
-                        <p>@prod.descricao</p>
-                        <p>@prod.colecao | @prod.tamanho | @prod.preco</p>
-                        <p><a href="/Inicio/Comprar?codigo=@prod.codigo" class="btn btn-primary" role="button">Comprar</a> </p>
-                    </div>
-                </div>
+        </div>
+        <div class="row" style="text-align:center">
+            <div class="col-lg-3" style=""></div>
+            <div class="col-lg-3" style=""></div>
+            <div class="col-lg-3" style=""></div>
+
+            <div class="col-lg-3">
+                @{
+                    if (Session["nome"] != null)
+                    {
+                        <label>Bem vindo, @Session["nome"]</label>
+                        <br />
+                        <label>Itens do carrinho: @Session["itens"] | </label><a href="/Login/Sair" style="color: brown"> Sair</a>
+                    }
+                    else
+                    {
+                        <label>Novo por aqui?</label>
+                        <a href="/Cliente/Cliente" class="btn btn-danger">Cadastre-se</a>
+                        <label>ou</label>
+                        <a href="/Login/Login" class="btn btn-danger">Entre</a>
+                    }
+                }
             </div>
-        }
+            <div class="row" style="border-top:solid darksalmon; padding-top:20px;">
+                <div class="col-lg-2 col-lg-offset-1"><label style="color:brown">Ordenar por:</label></div>
+                <div class="col-lg-4"><label style="color:brown"><input type="radio" name="vendidos" onclick="location.href='/Inicio/OrdenaPrecoAsc'"> Menor Preço</label></div>
+                <div class="col-lg-4"><label style="color:brown"><input type="radio" name="vendidos" onclick="location.href='/Inicio/OrdenaPrecoDesc'"> Maior Preço</label></div>
+            </div>
+            <div class="row" style="padding:10px;">
+                @foreach (var prod in Model)
+                {
+                    <div class="col-sm-9 col-md-3">
+                        <div class="thumbnail" style="background-color:wheat; border:solid 1px darksalmon">
+                            <img src="@prod.imagem" alt="Imagem do Produto" style="width:180px;  height:240px;">
+                            <div class="caption">
+                                <h3 style="font-size: 18px; color:brown">@prod.nome</h3>
+                                <p>@prod.descricao</p>
+                                <p>@prod.colecao | @prod.tamanho | @prod.preco</p>
+                                <p><a href="/Inicio/Comprar?codigo=@prod.codigo" class="btn btn-danger">Comprar</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
-    </div> 
 </body>
 </html>
